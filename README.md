@@ -68,7 +68,8 @@ PAAS also knwon as platform  as a service is when cloud computing services that 
 -private clouds refer to cloud computing resources that are used exclusivly by a single busness of organization. they can be physically located on the company's onsite datacenter. the infrastructure and services are maintained on a private network. for example azure private cloud ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/d264eda7-a7da-4901-af20-62371c0751c5)
 
 
-- hybrid clouds combine public and private clouds, bound together by technology that allows data and applications to be shared between them. they allow data and applications to move between private and public, meaning that business have greater flexibility and more deployment options, for example the healthcare industry. ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/b4068bf5-2ead-44f5-9db2-5ea2a67b8442)
+- hybrid clouds combine public and private clouds, bound together by technology that allows data and applications to be shared between them. they allow data and applications to move between private and public, meaning that business have greater flexibility and more deployment options, for example the healthcare industry. 
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/b4068bf5-2ead-44f5-9db2-5ea2a67b8442)
 
 
 - 

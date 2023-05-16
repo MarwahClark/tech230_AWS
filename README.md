@@ -1,6 +1,6 @@
 ### Cloud computing.
 
-cloud computing is the delivery of computing servers, storages and databases etc on remote servers over the internet instead of on the computers hardrive or local server. Cloud computing offers faster innovation and change as well as flexible resources.
+cloud computing is the delivery of computing servers, storages and databases etc on remote servers over the internet instead of on the computers hardrive or local server. Cloud computing offers faster innovation and change as well as flexible resources. (on demand computing power, scaleability and accesbility, manage many resources almost instantly, advanced security, cost effective, simple to use)
 
 cloud computing can also be referred to as `internet based computing`
 
@@ -72,7 +72,24 @@ PAAS also knwon as platform  as a service is when cloud computing services that 
 ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/b4068bf5-2ead-44f5-9db2-5ea2a67b8442)
 
 
-- 
-- 
+-### you have already been using the cloud!
+-email
+-office 365
+-github
+-icloud
+-oneDrive
+-social media
+-any content streaming service (netflix, disney,spotify etc.)
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/3708e2f9-9a0e-43a8-b0df-a57695178846)
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/a8c1dc90-80a4-40a2-917c-1e0acd47971e)
 
-###
+### capex vs opex? (expenditure)
+
+capex -flat spend to gain hardware resurces
+
+opex- pay as you go
+
+https://aws.amazon.com/about-aws/global-infrastructure/?p=ngi&loc=1
+
+
+

@@ -69,6 +69,19 @@ you should see this
 - ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/e149549b-79c1-447d-bbac-f90384886d30)
 ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/5070d8d5-aedc-495e-b671-f97da06d202f)
 
+### setting up mongodb
+-following the previous steps on how to create an instance, create a new instance and instead of writing out the nginx commands in the git bash termianl run the mongodb commands.
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/bf971016-a34a-4b46-998a-7fd2a86107b5)
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/3a70928f-c0be-41ca-b540-f2b699658d57)
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/925489919cb-40e7-9391-be41918f9c36)
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/68431d88-e127-4066-bfa7-94d23b812e70)
+- to check that it has worked run the ` sudo systemctl status mongodb` in the gitbash terminal and you should see `active running`
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/33e3428c-67c8-49e4-8f64-bcb7409bfb4a)
+
+
+
+
+-
 
 
 

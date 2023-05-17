@@ -86,9 +86,57 @@ you should see this
 ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/33e3428c-67c8-49e4-8f64-bcb7409bfb4a)
 
 
+### how to create an AMI
+
+- in order to create an AMI make an instance following the instructions from before. when you hvae created your instance, in the actions drop down select image and templates and then create template from instance.
+- 
+ ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/2f8de42a-9c8b-47f5-af5c-674ede4dc74e)
+ - name and describe your instance
+ - 
+ - 
+ - ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/a9a643e0-0351-4f39-bb8e-62efd4b7993a)
+ - 
+ - scroll to the advanced settings option and enter user data that includes the commands to start nginx/ mongodb
+ - 
+ -![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/12ed4550-6abf-456d-a36d-0a28eceae252)
+ 
+- finally launch 
+
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/4328433e-2669-476e-8fda-cfd157e6913e)
 
 
--
+### deploying your app
+- once you have set up your 2 instances 
+- in your git bash terminal enter the folder that your app is in and run the code
+`scp -i "~/.ssh/tech230.pem" -r app ubuntu@<insert your ec2 Public DNS here>:/home/ubuntu`
+this will move your app contents to the home page on ubuntu, your screen should look something like this as it loads, baring in mind it will take a moment.
+
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/f3a27962-5370-47b5-b535-64a46b49da65)
+
+-once you have unloaded, enter your ssh using the code `ssh -i "~/.ssh/tech230.pem" ubuntu@<insertyourdns>
+
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/bd2ea3f1-2e82-4335-a8b5-91f96af07a54)
+
+- next install all the neccessary apms using these codes 
+`sudo apt update`
+`sudo apt install -y nodejs npm`
+`sudo npm install -g pm2`
+to check your pm2 installed run the code `pm2 --version`
+`cd app` to enter your app file
+`pm2 start app.js` this allows your app to start
+
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/fb78f969-f8f3-4cb1-b8f2-268644129938)
+
+- to get your app working you have to enter the security group and add a new inbound rule at port 3000 source 0.0.0.0
+
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/547596eb-4698-4183-8e38-502c3b70205b)
+
+-finally your app should be up and running when you open with the public ip address add the `:3000`
+
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/ed1f788b-0ea7-4bb4-829b-20ff5f5c07c0)
+
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/9db35bf0-1d06-4c29-bd7e-f5734f6565f7)
+
 
 
 

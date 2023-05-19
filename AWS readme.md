@@ -137,6 +137,61 @@ to check your pm2 installed run the code `pm2 --version`
 
 ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/9db35bf0-1d06-4c29-bd7e-f5734f6565f7)
 
+### Adding the 'app' directory to the EC2 instance
+-Navigate to the .ssh folder on bash
+- connect to the ssh while in the correct folder using `scp -i "~/.ssh/tech230.pem -r app ubuntu@<Insert your EC2 Public DNS here>:/home/ubuntu`
+- to install the app run the codes
+`sudo apt update`
+`sudo apt install -y nodejs npm`
+`sudo npm install -g pm2`
+Use `pm2 --version` to verify pm2 installation
+pm2
+`cd app`
+`pm2 start app.js` to run the app in the background
+- in order to get the aws to work on the right port change the Security group to include a custom access to port 3000, for all 0.0.0.0. You can also change the SSH rule to only accept your IP.
+-Use the public IP address to get to the deployed webpage.
+
+### How to make an AMI for the running app
+- While the EC2 instance for running the app is running to create the AMI select the 'Actions' drop down and click 'Create an image' 
+- follow the instructions and name it and give it a description to explain roughly what it it
+-Launch the AMI from Images/AMIs OR the on the same 'Launch instance' page instead of 'Quick Start' select 'My AMIs' on AWS and then log in to the EC2.
+- `cd app`
+-  `pm2 start app.js` to start the app
+- double check that youre using the Public IP address in your web browser, then add ':3000' and you should see the Sparta Provisioning Test Page from the running app.
+
+### How to link the posts page
+
+- Launch  both the AMIs for the database and the app.
+
+-Change security groups:
+Add inbound rules to MongoDB EC2 instance so that the App EC2 instance can connect with it. (port 27017 for MongoDB)
+
+-Add inbound rules to App EC2 instance so that it can connect with the MongoDB EC2 instance.
+
+-Connect/login to both EC2 instances using the SSH method..
+
+-run the following commands in your EC2 instances to configure to the approporiate files and environment variables:
+
+-Check that the MongoDB is running with `sudo systemctl status mongodb` on your Database EC2.
+
+# in EC2 for database
+``sudo sed -i 's/^bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/g' /etc/mongodb.conf`
+`sudo systemctl restart mongodb`
+`sudo systemctl enable mongodb`
+If Nginx is not installed and running on your App EC2 follow the steps detailed earlier in this markdown to set it up. And if you use ls and the 'app' directory is not in the EC2 instance then follow the steps detailed earlier in this markdown to get it onto the EC2 before continuing.
+
+# in app
+echo 'export DB_HOST=mongodb://<Place MongoDB EC2 IP here>:27017/posts' >> /home/ubuntu/.bashrc # may work with either private/public IP
+source .bashrc
+sudo apt update
+sudo apt install -y nodejs npm
+sudo npm install -g pm2
+sudo systemctl reload nginx # optional command
+cd app
+node seeds/seed.js
+pm2 start app.js
+Alternatively add the DB_HOST with export DB_HOST=mongodb://<Place MongoDB EC2 IP here>:27017/posts - this will not be permanent (use printenv DB_HOST to check it took). Then you do not have to run the echo and source commands in the block above. To check if the app is running use pm2 status. If your app had previously been running use pm2 stop app to stop app, then try pm2 start app.js --update-env to run it with the changes to the environment vairables. To check what is working use these commands: Nginx status sudo systemctl status nginx, Nodejs nodejs --version and pm2 pm2 --version.
+
 
 
 

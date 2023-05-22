@@ -71,6 +71,19 @@ you should see this
 
 ### setting up mongodb
 -following the previous steps on how to create an instance, create a new instance and instead of writing out the nginx commands in the git bash termianl run the mongodb commands.
+`#!/bin/bash`
+
+`sudo apt update -y`
+
+`sudo apt upgrade -y`
+
+`sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927`
+
+`sudo apt install mongodb -y`
+
+`sudo systemctl start mongodb`
+
+`sudo systemctl enable mongodb`
 
 
 ![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/bf971016-a34a-4b46-998a-7fd2a86107b5)
@@ -175,22 +188,22 @@ Add inbound rules to MongoDB EC2 instance so that the App EC2 instance can conne
 -Check that the MongoDB is running with `sudo systemctl status mongodb` on your Database EC2.
 
 # in EC2 for database
-``sudo sed -i 's/^bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/g' /etc/mongodb.conf`
+` sudo nano /etc/mongodb.conf` and change the ip address to 0.0.0.0 so that anyone can connect
 `sudo systemctl restart mongodb`
 `sudo systemctl enable mongodb`
 If Nginx is not installed and running on your App EC2 follow the steps detailed earlier in this markdown to set it up. And if you use ls and the 'app' directory is not in the EC2 instance then follow the steps detailed earlier in this markdown to get it onto the EC2 before continuing.
 
 # in app
-echo 'export DB_HOST=mongodb://<Place MongoDB EC2 IP here>:27017/posts' >> /home/ubuntu/.bashrc # may work with either private/public IP
-source .bashrc
-sudo apt update
-sudo apt install -y nodejs npm
-sudo npm install -g pm2
-sudo systemctl reload nginx # optional command
-cd app
-node seeds/seed.js
-pm2 start app.js
-Alternatively add the DB_HOST with export DB_HOST=mongodb://<Place MongoDB EC2 IP here>:27017/posts - this will not be permanent (use printenv DB_HOST to check it took). Then you do not have to run the echo and source commands in the block above. To check if the app is running use pm2 status. If your app had previously been running use pm2 stop app to stop app, then try pm2 start app.js --update-env to run it with the changes to the environment vairables. To check what is working use these commands: Nginx status sudo systemctl status nginx, Nodejs nodejs --version and pm2 pm2 --version.
+'export DB_HOST=mongodb://<Place MongoDB EC2 IP here>:27017/posts' >> /home/ubuntu/.bashrc this will work with either private/public IP
+
+`source .bashrc`
+
+`cd app`
+
+`npm install`
+
+`pm2 start app.js --update-env` this command tiwll allow the app to start
+
 
 
 

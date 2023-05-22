@@ -40,3 +40,8 @@
 
 - test the provision file again by running the code `./provisons.sh` if successful it should show `your app is ready and listening on port 3000`
 - 
+
+
+![image](https://github.com/MarwahClark/tech230_AWS/assets/133018482/60a7c4fc-091f-4429-8d63-49e62cc65f90)
+
+

@@ -13,31 +13,43 @@
 `sudo apt-get upgrade -y`
 
 `sudo apt-get install nginx -y`
+
 `sudo systemctl start nginx`
-`sudo sed -i 's+try_files $uri $uri/ =404;+proxy_pass http://localhost:3000/;+' /etc/nginx/sites-available/default
+
+`sudo sed -i 's+try_files $uri $uri/ =404;+proxy_pass http://localhost:3000/;+' /etc/nginx/sites-available/default`
 
 
 `sudo systemctl enable nginx`
+
 `sudo systemctl restart nginx`
 
 `sudo apt install sed -y`
+
 `sudo apt-get install git -y`
+
 `curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -`
 
-git clone https://github.com/MarwahClark/app.git
-sudo apt-get install nodejs -y
-sudo npm install pm2 -g
+`git clone https://github.com/MarwahClark/app.git`
+
+`sudo apt-get install nodejs -y`
+
+`sudo npm install pm2 -g`
 
 `echo 'export DB_HOST=MONGODB://172.31.58.198:27017/posts' >> .bashrc`
+
 `source ~/.bashrc`
 
 `cd app`
+
 `pm2 stop app.js`
+
 `pm2 start app.js --update-env`
 
-- run this provision file using the code `./provision.sh` if it doesnt allow, run `sudo chmod a+rwx /.provision.sh` to allow for all permisions
+- run this provision file using the code `./provision.sh` if it doesnt allow, run 
 
-- test the provision file again by running the code `./provisons.sh` if successful it should show `your app is ready and listening on port 3000`
+`sudo chmod a+rwx /.provision.sh` to allow for all permisions 
+
+ test the provision file again by running the code `./provisons.sh` if successful it should show `your app is ready and listening on port 3000`
 - 
 
 ![Screenshot 2023-05-22 185015](https://github.com/MarwahClark/tech230_AWS/assets/133018482/0e845b2c-29dd-4307-b71d-ca6ed7c203fb)

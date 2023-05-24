@@ -34,4 +34,8 @@ ramon diagram
 ![Screenshot 2023-05-23 153920](https://github.com/MarwahClark/tech230_AWS/assets/133018482/5d395a68-f595-4f65-9e24-61cf8ec8fbd3)
 ![Screenshot 2023-05-23 154004](https://github.com/MarwahClark/tech230_AWS/assets/133018482/f71b8d8f-fffd-4f91-be4c-76084562caf9)
 
-- step thirteen next connect your instances to the vpc  by creating an instance, however once at the network settings selecct your VPC and subnet. you will also have to create a new security group as your previous security group will not be compatioble as it has to be in the same VPC as the subnet.
+- step thirteen next connect your instances to the vpc, adding the comands for nginx into user data.
+  by creating an instance, however once at the network settings selecct your VPC and subnet. you will also have to create a new security group as your previous security group will not be compatioble as it has to be in the same VPC as the subnet.
+  
+  ![Screenshot 2023-05-23 154113](https://github.com/MarwahClark/tech230_AWS/assets/133018482/a443ee79-5f4f-47aa-8882-bdddac98967c)
+

@@ -1,5 +1,8 @@
 vpc
 virtual public cloud, mix of the 2 
+ramon diagram 
+![Screenshot 2023-05-23 142408](https://github.com/MarwahClark/tech230_AWS/assets/133018482/58e76eb6-808d-462e-ba35-85e1194226ef)
+
 
 ### CREATING VPC
 
